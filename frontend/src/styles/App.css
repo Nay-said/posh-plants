@@ -1,0 +1,25 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+#wrap {
+  width: 100%;
+  margin: 20px auto 0 auto;
+}
+
+main {
+  width: 100%;
+}
+
+@media screen and (min-width: 1800px) {
+  #wrap {
+    max-width: 1700px;
+    margin: 20px auto 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #wrap {
+    margin: 20px 10px 0 20px;
+  }
+}

@@ -1,0 +1,11 @@
+#heading-bar {
+  max-width: 1700px;
+  height: 80px;
+  position: relative;
+  top: 0;
+  left: 0vw;
+  background-color: #eaeaea;
+  padding: 20px 50px;
+  font-size: 28px;
+  font-weight: 500;
+}

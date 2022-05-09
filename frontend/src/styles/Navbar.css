@@ -1,0 +1,53 @@
+nav {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: baseline;
+  padding: 0 50px 30px 50px;
+}
+
+.navbar-nav:first-child a {
+  padding-left: 0 !important;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#icons {
+  display: flex;
+}
+
+#icons > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+#icons > div:hover {
+  color: #8d8d8d;
+}
+
+#search {
+  font-size: 22px;
+}
+
+#user {
+  font-size: 26px;
+}
+
+#cart {
+  font-size: 23px;
+}
+
+.navbar-nav a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #232323 !important;
+}
+
+.navbar-nav a:hover {
+  text-decoration: underline;
+}
