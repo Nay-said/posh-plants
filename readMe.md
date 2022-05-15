@@ -1,8 +1,10 @@
 # Posh Plants Web Store
+Created using MERN stack
 
 ### Scripts:
-Backend (/):
+Backend server (/):
 `$ npm run server`
+*Run at root folder*
 
-Frontend (/frontend):
+Frontend view (/frontend):
 `$ npm run server`
