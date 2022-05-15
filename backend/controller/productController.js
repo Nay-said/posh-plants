@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler')
 
 // Get Products
 // @route GET /api/product
-// @access Private
+// @access Public
 const getProducts = asyncHandler(async(req, res) => {
   const products = await Product.find()
   res.json(products)
