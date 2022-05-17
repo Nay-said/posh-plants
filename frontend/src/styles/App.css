@@ -1,3 +1,4 @@
+/* General Layout */
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -22,4 +23,23 @@ main {
   #wrap {
     margin: 20px 10px 0 20px;
   }
+}
+
+/* Login & Sign up Page */
+.user-form-wrap {
+  width: 500px;
+  margin: 80px auto 0 auto;
+  text-align: center;
+}
+
+.user-formgroup {
+  margin: 28px 0;
+}
+
+.user-formgroup > input {
+  margin-bottom: 25px;
+}
+
+.user-form-wrap button {
+  margin-top: 20px;
 }

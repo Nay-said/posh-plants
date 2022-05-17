@@ -26,7 +26,11 @@ nav {
   cursor: pointer;
 }
 
-#icons > div:hover {
+#icons a {
+  color: #232323;
+}
+
+#icons > div:hover, #icons a:hover {
   color: #8d8d8d;
 }
 

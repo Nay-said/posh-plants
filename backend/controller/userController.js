@@ -69,13 +69,9 @@ const logIn = asyncHandler(async(req, res) => {
 // @route GET /api/my-account
 // @access Private
 const getUserInfo = asyncHandler(async(req, res) => {
-  const { _id, name, email } = await User.findById(req.user.id)
+  // const { _id, name, email } = await User.findById(req.user.id)
 
-  res.status(200).json({
-    id: _id,
-    name,
-    email
-  })
+  res.status(200).json(req.user)
   // res.send(`User id ${_id} Info: ${name}, ${email}`)
 })
 

@@ -22,7 +22,9 @@ const Navbar = () => {
 
       <section id="icons">
         <div id="search"><i className="bi bi-search"></i></div>
-        <div id="user"><i className="bi bi-person"></i></div>
+        <div id="user">
+          <a href="/Login"><i className="bi bi-person"></i></a>
+        </div>
         <div id="cart"><i className="bi bi-cart3"></i></div>
       </section>
     </nav>
