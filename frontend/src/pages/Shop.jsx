@@ -1,12 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import '../styles/Shop.css'
 import TabPane from '../components/Tab'
+import { ProductBaseURL } from '../enviroment'
 import { allProduct, NewProds, ProdsOnSale } from '../dummyData'
 
 const Shop = () => {
   const [tabIndex, setTabIndex] = useState(1)
   const tabType = { 1: allProduct, 2: NewProds, 3: NewProds, 4: NewProds, 5: ProdsOnSale }
   console.log(window.location)
+
+  useEffect(() => {
+    axios.get(`${ProductBaseURL}`)
+      .then(res => {
+        console.log(res.data)
+      })
+  }, [])
 
   const setActive = i => tabIndex === i ? 'tab active-tab' : 'tab'
 
