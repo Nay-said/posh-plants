@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import HighlightProduct from '../components/Home/HighlightProduct'
+import Banner from '../components/Banner'
 import TabPane from '../components/Tab'
 import '../styles/Home.css'
+import { HoyaBanner, AroidsBanner } from '../assets/frontendResources'
 import { NewProds, ProdsOnSale } from '../dummyData'
+import SmallBanner from '../components/SmallBanner'
 
 const Home = () => {
   const [tabIndex, setTabIndex] = useState(1)
@@ -14,18 +16,14 @@ const Home = () => {
 
   return (
     <div id="Home-Page">
-      <section className="row">
-        <HighlightProduct imgSrc="https://kiwigardenermagazine.co.nz/wp-content/uploads/sites/4/2021/05/June-Hoya.jpg" heading="Hoya" />
-        <HighlightProduct imgSrc="https://mymodernmet.com/wp/wp-content/uploads/2021/05/popular-houseplants-1.jpg" heading="Aroids"/>
+      <section id="Banners" className="row">
+        <Banner imgSrc={HoyaBanner.imgSrc} heading={HoyaBanner.heading} />
+        <Banner imgSrc={AroidsBanner.imgSrc} heading={AroidsBanner.heading} />
       </section>
 
-      <section className="row" id="category">
-        <div className="col-12 col-md-6">
-          <p className="all-other">All Other Plants</p>
-        </div>
-        <div className="col-12 col-md-6">
-          <p className="accsry">Accessories</p>
-        </div>
+      <section id="other-category" className="row" >
+        <SmallBanner heading={'All Other Plants'} href={'other'} />
+        <SmallBanner heading={'Accessories'} href={'accessories'} />
       </section>
 
       <section>

@@ -49,35 +49,34 @@ img {
   color: #474747;
 }
 
-#category {
+#other-category {
   margin: 0;
   padding: 0;
 }
 
-#category > div {
-  padding: 0;
+#other-category > div:first-child {
+  padding-left: 0;
 }
 
-#category > div > p {
+#other-category > div:last-child {
+  padding-right: 0;
+}
+
+#other-category > div > a {
+  display: block;
   height: 80px;
+  color: #232323;
   background-color: #f0f0f0;
   padding: 20px 30px;
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 2px;
+  text-decoration: none;
 }
 
-#category > div > p:hover {
+#other-category > div > a:hover {
   cursor: pointer;
   text-decoration: underline;
-}
-
-.all-other {
-  margin-right: 10px;
-}
-
-.accsry {
-  margin-left: 10px;
 }
 
 /* Tabs */
@@ -141,9 +140,14 @@ img {
   font-weight: 600;
 }
 
+/* Media Query */
 @media screen and (max-width: 768px) {
   #heading {
     top: 20px;
     left: 25px;
+  }
+
+  #other-category > div {
+    padding: 0;
   }
 }

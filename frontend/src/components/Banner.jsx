@@ -1,7 +1,7 @@
 import React from 'react'
-import '../../styles/Home.css'
+import '../styles/Home.css'
 
-const HighlightProduct = ({ imgSrc, heading }) => {
+const Banner = ({ imgSrc, heading }) => {
   return (
     <div id="featured-product" className="col-12 col-md-6">
       <a href={`/shop#${heading}`}>
@@ -15,4 +15,4 @@ const HighlightProduct = ({ imgSrc, heading }) => {
   )
 }
 
-export default HighlightProduct
+export default Banner

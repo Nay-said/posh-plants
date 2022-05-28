@@ -1,6 +1,8 @@
 # Posh Plants Web Store
 Created using MERN stack
 
+Deployed site at: https://posh-plants.herokuapp.com/
+
 ## Initial Setup
 The following shows you how to scaffolding the project after cloning the repo:
 
