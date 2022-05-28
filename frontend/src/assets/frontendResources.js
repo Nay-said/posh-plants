@@ -1,5 +1,5 @@
 export const HoyaBanner = {
-  heading: 'Hoya',
+  heading: 'Hoyas',
   imgSrc: 'https://kiwigardenermagazine.co.nz/wp-content/uploads/sites/4/2021/05/June-Hoya.jpg'
 }
 

@@ -45,8 +45,16 @@ img {
   font-weight: 600;
 }
 
-#featured-product a:hover {
-  color: #474747;
+#featured-product a:hover h2 {
+  font-weight: 500;
+}
+
+#featured-product a:hover p {
+  font-weight: 800;
+}
+
+#featured-product a:hover img {
+  opacity: 0.85;
 }
 
 #other-category {
@@ -68,15 +76,22 @@ img {
   color: #232323;
   background-color: #f0f0f0;
   padding: 20px 30px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   letter-spacing: 2px;
   text-decoration: none;
 }
 
-#other-category > div > a:hover {
+#other-category a:hover {
   cursor: pointer;
-  text-decoration: underline;
+}
+
+#other-category i {
+  font-size: 22px;
+}
+
+#other-category a:hover, #other-category a:hover > i {
+  font-weight: 600 !important;
 }
 
 /* Tabs */
@@ -87,7 +102,7 @@ img {
 }
 
 .tab {
-  width: 50px;
+  width: auto;
   text-align: center;
   font-size: 18px;
   font-weight: 500;
@@ -143,8 +158,8 @@ img {
 /* Media Query */
 @media screen and (max-width: 768px) {
   #heading {
-    top: 20px;
-    left: 25px;
+    top: 30px;
+    left: 45px;
   }
 
   #other-category > div {

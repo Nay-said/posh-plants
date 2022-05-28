@@ -1,47 +1,65 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../styles/Shop.css'
-import TabPane from '../components/Tab'
+import TabPane from '../components/TabPane'
 import { ProductBaseURL } from '../enviroment'
-import { allProduct, NewProds, ProdsOnSale } from '../dummyData'
+import { Routes, Route, NavLink } from "react-router-dom";
+import { allProducts, Hoyas, Aroids, NewProds, ProdsOnSale } from '../dummyData'
 
 const Shop = () => {
-  const [tabIndex, setTabIndex] = useState(1)
-  const tabType = { 1: allProduct, 2: NewProds, 3: NewProds, 4: NewProds, 5: ProdsOnSale }
-  console.log(window.location)
+  const tabData = { 1: allProducts, 2: Hoyas, 3: Aroids, 4: NewProds, 5: ProdsOnSale }
+  // const tabs = { 1: 'All', 2: 'Hoyas', 3: 'Aroids', 4: 'New', 5: 'Sale' }
 
   useEffect(() => {
     axios.get(`${ProductBaseURL}`)
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
       })
   }, [])
 
-  const setActive = i => tabIndex === i ? 'tab active-tab' : 'tab'
+  const dataForRander = tabIndex => tabData[tabIndex] ?? 'NewProds'
 
-  const dataForRander = tabIndex => tabType[tabIndex] ?? 'NewProds'
-
-  const paramHandler = param => {}
+  const setActive = ({isActive}) => isActive ? activeClass : 'tab'
+  const activeClass = 'tab active-tab'
 
   return (
-    <div>
+    <>
       <section id='heading-bar'>
         <p>Shop</p>
       </section>
 
       <section id='tab-menu'>
-        <div className={setActive(1)} onClick={() => setTabIndex(1)}>All</div>
-        <div className={setActive(2)} onClick={() => setTabIndex(2)}>Hoyas</div>
-        <div className={setActive(3)} onClick={() => setTabIndex(3)}>Aroids</div>
-        <div className={setActive(4)} onClick={() => setTabIndex(4)}>New</div>
-        <div className={setActive(5)} onClick={() => setTabIndex(5)}>Sale</div>
+        <NavLink to='/Shop/All' className={setActive}>All</NavLink >
+        <NavLink to="/Shop/Hoyas" className={setActive}>Hoyas</NavLink>
+        <NavLink to="/Shop/Aroids" className={setActive}>Aroids</NavLink>
+        <NavLink to="/Shop/Accessories" className={setActive}>Accessories</NavLink>
+        <NavLink to="/Shop/Sale" className={setActive}>Sale</NavLink>
       </section>
 
       <section>
-        <TabPane prodsForDisplay={dataForRander(tabIndex)} />
-      </section>
+        <Routes>
+          <Route path='/All' element={
+            <TabPane prodsForDisplay={dataForRander(1)} /> 
+          } />
 
-    </div>
+          <Route path='/Hoyas' element={
+            <TabPane prodsForDisplay={dataForRander(2)} /> 
+          } />
+
+          <Route path='/Aroids' element={
+            <TabPane prodsForDisplay={dataForRander(3)} /> 
+          } />
+
+          <Route path='/Accessories' element={
+            <TabPane prodsForDisplay={dataForRander(4)} /> 
+          } />
+
+          <Route path='/Sale' element={
+            <TabPane prodsForDisplay={dataForRander(5)} /> 
+          } />
+        </Routes>
+      </section>
+    </>
   )
 }
 

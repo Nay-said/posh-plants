@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './styles/App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -11,12 +11,14 @@ function App() {
     <div id='wrap'>
       <Navbar />
       <main>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Shop" element={<Shop />} />
+          <Route path="/Shop/*" element={<Shop />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
         </Routes>
+      </BrowserRouter>
       </main>
     </div>
   );

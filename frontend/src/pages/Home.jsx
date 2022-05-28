@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Banner from '../components/Banner'
-import TabPane from '../components/Tab'
+import TabPane from '../components/TabPane'
 import '../styles/Home.css'
 import { HoyaBanner, AroidsBanner } from '../assets/frontendResources'
 import { NewProds, ProdsOnSale } from '../dummyData'
@@ -22,8 +22,8 @@ const Home = () => {
       </section>
 
       <section id="other-category" className="row" >
-        <SmallBanner heading={'All Other Plants'} href={'other'} />
-        <SmallBanner heading={'Accessories'} href={'accessories'} />
+        <SmallBanner heading={'All Other Plants'} path={'All'} />
+        <SmallBanner heading={'Accessories'} path={'Accessories'} />
       </section>
 
       <section>
