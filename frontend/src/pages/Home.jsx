@@ -23,7 +23,7 @@ const Home = () => {
 
       <section id="other-category" className="row" >
         <SmallBanner heading={'All Other Plants'} path={'All'} />
-        <SmallBanner heading={'Accessories'} path={'Accessories'} />
+        <SmallBanner heading={'Accessories'} path={'Accsory'} />
       </section>
 
       <section>

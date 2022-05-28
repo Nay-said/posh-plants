@@ -32,7 +32,7 @@ const Shop = () => {
         <NavLink to='/Shop/All' className={setActive}>All</NavLink >
         <NavLink to="/Shop/Hoyas" className={setActive}>Hoyas</NavLink>
         <NavLink to="/Shop/Aroids" className={setActive}>Aroids</NavLink>
-        <NavLink to="/Shop/Accessories" className={setActive}>Accessories</NavLink>
+        <NavLink to="/Shop/Accsory" className={setActive}>Accessories</NavLink>
         <NavLink to="/Shop/Sale" className={setActive}>Sale</NavLink>
       </section>
 
