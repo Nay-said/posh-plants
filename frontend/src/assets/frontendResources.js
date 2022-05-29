@@ -9,10 +9,15 @@ export const AroidsBanner = {
 }
 
 export const WelcomeMessage = () => {
-  return <><strong>Welcome!</strong> New  to Posh Plants? Sign up a free account and get your first plant from us worry-free!</>
+  return <>
+    <strong>New to Posh Plants?</strong> Sign up a free account and buy plants from us worry-free!
+  </>
 }
 
-export const signUpLink = {
-  href: '/',
-  desc: 'Singn up now'
+export const Links = () => {
+  return <>
+    <a href='/Signup' className='ps-3 pe-2'>Singn up now</a>
+    Or 
+    <a href='/Login' className='ps-2'>Log in</a>
+  </>
 }

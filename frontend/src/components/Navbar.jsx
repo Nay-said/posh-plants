@@ -22,7 +22,8 @@ const Navbar = () => {
       <section id="icons">
         <div id="search"><i className="bi bi-search"></i></div>
         <div id="user">
-          <a href="/Login"><i className="bi bi-person"></i></a>
+          <a href="/Login"><i className="bi bi-person-plus"></i></a>
+          {/* <a href="/Account"><i className="bi bi-person"></i></a> */}
         </div>
         <div id="cart"><i className="bi bi-cart3"></i></div>
       </section>

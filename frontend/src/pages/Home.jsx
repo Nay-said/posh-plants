@@ -3,7 +3,7 @@ import Banner from '../components/Banner'
 import SmallBanner from '../components/SmallBanner'
 import TabPane from '../components/TabPane'
 import PopUp from '../components/PopUp'
-import { HoyaBanner, AroidsBanner, WelcomeMessage, signUpLink } from '../assets/frontendResources'
+import { HoyaBanner, AroidsBanner, WelcomeMessage, Links } from '../assets/frontendResources'
 import { NewProds, ProdsOnSale } from '../dummyData'
 import '../styles/Home.css'
 import '../styles/PopUp.css'
@@ -23,7 +23,7 @@ const Home = () => {
     <div id="Home-Page">
       {
         showWelcomeMessage && 
-          <PopUp color={'bg-gray'} text={WelcomeMessage()} link={signUpLink} />
+          <PopUp color={'bg-gray'} text={WelcomeMessage()} links={Links()} />
       }
       
       <section id="Banners" className="row">
