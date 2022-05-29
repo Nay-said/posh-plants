@@ -6,7 +6,7 @@ const TabPane = ({ prodsForDisplay }) => {
     <div id='tab-pane'>
       {
         prodsForDisplay.map((prod, index) => 
-          <Product productInfo={prod} key={index} />
+          <Product productInfo={prod} key={index} prodId={index} />
         )
       }
     </div>

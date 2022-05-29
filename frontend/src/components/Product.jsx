@@ -1,11 +1,13 @@
 import React from 'react'
 
-const Product = ({ productInfo }) => {
+const Product = ({ productInfo, prodId }) => {
   return (
     <div id='product'>
-      <img src={productInfo.imgSrc} alt="Our Product" />
-      <p id='product-name'>{productInfo.prodName}</p>
-      <p id="product-price">$ {productInfo.price}</p>
+      <a href={`/Product/${prodId}`}>
+        <img src={productInfo.imgSrc} alt={`${productInfo.prodName}`} />
+        <p id='product-name'>{productInfo.prodName}</p>
+        <p id='product-price'>$ {productInfo.price}</p>
+      </a>
     </div>
   )
 }
