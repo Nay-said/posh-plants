@@ -50,7 +50,7 @@ const Shop = () => {
             <TabPane prodsForDisplay={dataForRander(3)} /> 
           } />
 
-          <Route path='/Accessories' element={
+          <Route path='/Accsory' element={
             <TabPane prodsForDisplay={dataForRander(4)} /> 
           } />
 
