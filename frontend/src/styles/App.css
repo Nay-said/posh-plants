@@ -43,3 +43,15 @@ main {
 .user-form-wrap button {
   margin-top: 20px;
 }
+
+#Success {
+  margin-top: 30px;
+}
+
+#Error {
+  margin-top: 30px;
+}
+
+#Error i {
+  font-size: 30px;
+}
