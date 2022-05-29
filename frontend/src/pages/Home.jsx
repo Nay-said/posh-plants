@@ -1,21 +1,31 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Banner from '../components/Banner'
-import TabPane from '../components/TabPane'
-import '../styles/Home.css'
-import { HoyaBanner, AroidsBanner } from '../assets/frontendResources'
-import { NewProds, ProdsOnSale } from '../dummyData'
 import SmallBanner from '../components/SmallBanner'
+import TabPane from '../components/TabPane'
+import PopUp from '../components/PopUp'
+import { HoyaBanner, AroidsBanner, WelcomeMessage, signUpLink } from '../assets/frontendResources'
+import { NewProds, ProdsOnSale } from '../dummyData'
+import '../styles/Home.css'
+import '../styles/PopUp.css'
 
 const Home = () => {
   const [tabIndex, setTabIndex] = useState(1)
+  const [showWelcomeMessage, setWelcome] = useState(false)
   const tabType = { 1: NewProds, 2: ProdsOnSale }
-
   const setActive = i => tabIndex === i ? 'tab active-tab' : 'tab'
-
   const dataForRander = tabIndex => tabType[tabIndex] ?? NewProds
+
+  useEffect(() => {
+    setTimeout(() => setWelcome(true), 2000)
+  }, [showWelcomeMessage])
 
   return (
     <div id="Home-Page">
+      {
+        showWelcomeMessage && 
+          <PopUp color={'bg-gray'} text={WelcomeMessage()} link={signUpLink} />
+      }
+      
       <section id="Banners" className="row">
         <Banner imgSrc={HoyaBanner.imgSrc} heading={HoyaBanner.heading} />
         <Banner imgSrc={AroidsBanner.imgSrc} heading={AroidsBanner.heading} />
