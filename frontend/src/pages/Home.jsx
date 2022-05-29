@@ -7,7 +7,7 @@ import { HoyaBanner, AroidsBanner, WelcomeMessage, Links } from '../assets/front
 import { NewProds, ProdsOnSale } from '../dummyData'
 import '../styles/Home.css'
 import '../styles/PopUp.css'
-import { authToken } from '../service'
+import { getAuthToken } from '../service'
 
 const Home = () => {
   const [tabIndex, setTabIndex] = useState(1)
@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div id="Home-Page">
       {
-        (showWelcomeMessage && !authToken) && 
+        (showWelcomeMessage && !getAuthToken()) && 
           <PopUp color={'bg-gray'} text={WelcomeMessage()} links={Links()} />
       }
       

@@ -28,9 +28,11 @@ const Login = () => {
         setSuccess(true)
         setTimeout(() => {
           navigate('/')
+          window.location.reload()
         }, 2000);
         localStorage.setItem('userToken-PoshPlants', res.data.token)
         localStorage.setItem('userEmail-PoshPlants', res.data.email)
+        localStorage.setItem('userName-PoshPlants', res.data.name)
       })
       .catch(err => {
         console.log(err)
@@ -51,6 +53,10 @@ const Login = () => {
           <input type="text" className='form-control' id='email' name='email' value={email} placeholder='Your Email' onChange={onInputChange} />
           <input type="password" className='form-control' id='password' name='password' value={password} placeholder='Your password' onChange={onInputChange} />
         </div>
+        <p>
+          Haven't got an account with us? &nbsp;
+          <a href="/Signup">Sign up here</a>
+        </p>
         { success ?
           <span id="Success" className="text-success">
             <div className="spinner-border text-success" role="status">

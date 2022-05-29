@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import axios from 'axios'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { UserBaseURL } from '../enviroment'
 
 const Signup = () => {
@@ -9,8 +10,10 @@ const Signup = () => {
     password: '',
     confPassword: ''
   })
-
+  const [success, setSuccess] = useState(false)
+  const [fail, setFail] = useState(false)
   const { name, email, password, confPassword } = formData
+  let navigate = useNavigate()
 
   const onInputChange = e => {
     setFormData(prevState => ({
@@ -21,14 +24,23 @@ const Signup = () => {
 
   const onSubmit = e => {
     e.preventDefault()
-
-    axios.post(`${UserBaseURL}login`, formData)
+    setFail(false)
+    axios.post(`${UserBaseURL}`, formData)
       .then(res => {
-        console.log(res)
+        setSuccess(true)
+        setTimeout(() => {
+          navigate('/Login')
+          window.location.reload()
+        }, 2000);
       })
-      .catch(err => console.log(err))
-    console.log(formData)
+      .catch(err => {
+        console.log(err)
+        setFail(true)
+      })
   }
+
+  // Check if all form fileds have value, if not disable login button
+  const isDisabled = () => !Object.values(formData).every(prop => prop)
 
   return (
     <div className="user-form-wrap">
@@ -39,12 +51,31 @@ const Signup = () => {
         <div className='user-formgroup'>
           <input type="text" className='form-control' id='name' name='name' value={name} placeholder='Your user name' onChange={onInputChange} />
           <input type="text" className='form-control' id='email' name='email' value={email} placeholder='Your Email' onChange={onInputChange} />
-          <input type="text" className='form-control' id='password' name='password' value={password} placeholder='Set your password' onChange={onInputChange} />
-          <input type="text" className='form-control' id='confPassword' name='confPassword' value={confPassword} placeholder='Confirm your password' onChange={onInputChange} />
+          <input type="password" className='form-control' id='password' name='password' value={password} placeholder='Set your password' onChange={onInputChange} />
+          <input type="password" className='form-control' id='confPassword' name='confPassword' value={confPassword} placeholder='Confirm your password' onChange={onInputChange} />
         </div>
-        <button type="submit" className="btn btn-outline-secondary">
-          Sign Up
-        </button>
+        { success ?
+          <span id="Success" className="text-success">
+            <div className="spinner-border text-success" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p className='mt-3'>
+              <i className="bi bi-check-circle-fill"></i> &nbsp;
+              Great!<br /> Your account is ready <br /> 
+              You will be redirected in a second
+            </p>
+          </span>
+        :
+          <button type="submit" className="btn btn-outline-secondary" disabled={isDisabled()}>
+            Sign Up
+          </button>
+        }
+        { fail && 
+          <div id="Error" className="text-danger">
+            <i className="bi bi-x-circle-fill"></i>
+            <p>Error!<br />Please check your credentials</p>
+          </div>
+        }
       </form>
     </div>
   )

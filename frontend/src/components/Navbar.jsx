@@ -1,7 +1,26 @@
-import { authToken } from '../service'
+import { useEffect, useState } from 'react'
+import { getAuthToken } from '../service'
 import '../styles/Navbar.css'
+import Dialog from './Dialog'
 
 const Navbar = () => {
+  const [userToken, setUserToken] = useState('')
+  const [showDialog, setShowDialog] = useState(false)
+  
+  useEffect(() => {
+    const token = getAuthToken()
+    token && setUserToken(token)
+  }, [userToken])
+
+  const toggleDialog = () => setShowDialog(!showDialog)
+
+  const signOut = () => {
+    localStorage.removeItem('userToken-PoshPlants')
+    localStorage.removeItem('userEmail-PoshPlants')
+    localStorage.removeItem('userName-PoshPlants')
+    window.location.reload()
+  }
+
   return (
     <nav className="navbar navbar-expand navbar-light">
       <ul className="navbar-nav mb-2 mb-lg-0 d-none d-md-flex">
@@ -23,14 +42,16 @@ const Navbar = () => {
       <section id="icons">
         <div id="search"><i className="bi bi-search"></i></div>
         <div id="user">
-          { authToken ? 
-            <a href="/Account"><i className="bi bi-person"></i></a>
+          { userToken ? 
+            <span onClick={() => toggleDialog()}><i className="bi bi-person"></i></span>
             :
             <a href="/Login"><i className="bi bi-person-plus"></i></a>
           }
         </div>
         <div id="cart"><i className="bi bi-cart3"></i></div>
       </section>
+
+      { showDialog && <Dialog onClose={toggleDialog} signOut={signOut} /> }
     </nav>
   )
 }
