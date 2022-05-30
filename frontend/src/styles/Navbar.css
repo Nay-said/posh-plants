@@ -55,3 +55,9 @@ nav {
 .navbar-nav a:hover {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0 25px 30px 25px;
+  }
+}

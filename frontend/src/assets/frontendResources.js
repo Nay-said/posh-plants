@@ -10,7 +10,7 @@ export const AroidsBanner = {
 
 export const WelcomeMessage = () => {
   return <>
-    <strong>New to Posh Plants?</strong> Sign up a free account and buy plants from us worry-free!
+    <strong>Welcome!</strong> New here? Sign up a free account and buy plants from us worry-free!
   </>
 }
 

@@ -13,6 +13,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+// API Routes
 app.use('/api/products', require('./routes/productRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 

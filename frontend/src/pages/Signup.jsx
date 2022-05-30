@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserBaseURL } from '../enviroment'
+import { isDisabled } from '../service'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -39,8 +40,7 @@ const Signup = () => {
       })
   }
 
-  // Check if all form fileds have value, if not disable login button
-  const isDisabled = () => !Object.values(formData).every(prop => prop)
+  const passwdMatch = () => formData.password === formData.confPassword
 
   return (
     <div className="user-form-wrap">
@@ -50,10 +50,13 @@ const Signup = () => {
         <hr />
         <div className='user-formgroup'>
           <input type="text" className='form-control' id='name' name='name' value={name} placeholder='Your user name' onChange={onInputChange} />
-          <input type="text" className='form-control' id='email' name='email' value={email} placeholder='Your Email' onChange={onInputChange} />
+          <input type="email" className='form-control' id='email' name='email' value={email} placeholder='Your Email' onChange={onInputChange} />
           <input type="password" className='form-control' id='password' name='password' value={password} placeholder='Set your password' onChange={onInputChange} />
           <input type="password" className='form-control' id='confPassword' name='confPassword' value={confPassword} placeholder='Confirm your password' onChange={onInputChange} />
         </div>
+        {
+          !passwdMatch() && <p className='text-danger'>Password does not match!</p>
+        }
         { success ?
           <span id="Success" className="text-success">
             <div className="spinner-border text-success" role="status">
@@ -66,7 +69,7 @@ const Signup = () => {
             </p>
           </span>
         :
-          <button type="submit" className="btn btn-outline-secondary" disabled={isDisabled()}>
+          <button type="submit" className="btn btn-outline-secondary" disabled={isDisabled(formData) || !passwdMatch()}>
             Sign Up
           </button>
         }

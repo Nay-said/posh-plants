@@ -4,6 +4,14 @@ const asyncHandler = require('express-async-handler')
 const User = require('../Models/userModel')
 const res = require('express/lib/response')
 
+// Get All Users
+// @route GET /api/users/all
+// @access Public
+const getUsers = asyncHandler(async(req, res) => {
+  const users = await User.find()
+  res.json(users)
+})
+
 // Register New User
 // @route POST /api/users
 // @access Public
@@ -57,6 +65,7 @@ const logIn = asyncHandler(async(req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      isAdmin: user.isAdmin,
       token: generateToken(user._id)
     })
   } else {
@@ -65,14 +74,19 @@ const logIn = asyncHandler(async(req, res) => {
   }
 })
 
-// Get User Info
-// @route GET /api/my-account
+// Authenticate Admin User
+// @route POST /api/admin-auth
 // @access Private
-const getUserInfo = asyncHandler(async(req, res) => {
-  // const { _id, name, email } = await User.findById(req.user.id)
+const authAdmin = asyncHandler(async(req, res) => {
+  const {email} = req.body
+  const user = await User.findOne({email})
 
-  res.status(200).json(req.user)
-  // res.send(`User id ${_id} Info: ${name}, ${email}`)
+  if(user && user.isAdmin) {
+    res.status(200).json(req.user)
+  } else {
+    res.status(400)
+    throw new Error('Invalid Permission! Not an admin account.')
+  }
 })
 
 // Generate JWT Token
@@ -83,5 +97,5 @@ const generateToken = id => {
 }
 
 module.exports = {
-  signUp, logIn, getUserInfo
+  getUsers, signUp, logIn, authAdmin
 }

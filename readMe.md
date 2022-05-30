@@ -1,7 +1,11 @@
 # Posh Plants Web Store
-Created using MERN stack
+This project is for academic purpose, as the artefact of my Master of Computer and Informatin Sciences research project.
+
+Application reated using MERN stack. MongoDB Altas cloud database is used.
 
 Deployed site at: https://posh-plants.herokuapp.com/
+
+For any enquires, contact me at [hengyu.shi@outlook.com](mailto:hengyu.shi@outlook.com)
 
 ## Initial Setup
 The following shows you how to scaffolding the project after cloning the repo:

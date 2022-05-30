@@ -1,12 +1,26 @@
 const Product = require('../Models/productModel')
 const asyncHandler = require('express-async-handler')
 
-// Get Products
+// Get All Products
 // @route GET /api/product
 // @access Public
 const getProducts = asyncHandler(async(req, res) => {
   const products = await Product.find()
   res.json(products)
+})
+
+// Get Product By Id
+// @route GET /api/product/:id
+// @access Public
+const getProductById = asyncHandler(async(req, res) => {
+  const product = await Product.findById(req.params.id)
+
+  if(!product) {
+    res.status(400)
+    throw new Error('Product Not Found!')
+  }
+
+  res.json(product)
 })
 
 // Create Products
@@ -19,7 +33,9 @@ const createProducts = asyncHandler(async(req, res) => {
   }
 
   const product = await Product.create({
-    productName: req.body.productName
+    productName: req.body.productName,
+    price: req.body.price,
+    type: req.body.type,
   })
   res.json(product)
 })
@@ -59,5 +75,5 @@ const deleteProducts = asyncHandler(async(req, res) => {
 })
 
 module.exports = {
-  getProducts, createProducts, updateProducts, deleteProducts
+  getProducts, getProductById, createProducts, updateProducts, deleteProducts
 }

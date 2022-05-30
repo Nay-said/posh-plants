@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getAuthToken } from '../service'
+import { getAuthToken, signOut } from '../service'
 import '../styles/Navbar.css'
 import Dialog from './Dialog'
 
@@ -13,13 +13,6 @@ const Navbar = () => {
   }, [userToken])
 
   const toggleDialog = () => setShowDialog(!showDialog)
-
-  const signOut = () => {
-    localStorage.removeItem('userToken-PoshPlants')
-    localStorage.removeItem('userEmail-PoshPlants')
-    localStorage.removeItem('userName-PoshPlants')
-    window.location.reload()
-  }
 
   return (
     <nav className="navbar navbar-expand navbar-light">

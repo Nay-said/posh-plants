@@ -1,6 +1,14 @@
-import { getUserEmail, getUserName } from '../service'
+import { useNavigate } from 'react-router-dom'
+import { getUserEmail, getUserName, isAdmin } from '../service'
 
 const Dialog = ({ onClose, signOut }) => {
+  let navigate = useNavigate()
+
+  const goToPanel = () => {
+    navigate('/Admin')
+    onClose()
+  }
+
   return (
     <div id="Dialog">
       <div id="Dialog-content">
@@ -13,7 +21,13 @@ const Dialog = ({ onClose, signOut }) => {
           <p>{getUserName()}</p>
           <p className="pb-3">{getUserEmail()}</p>
           <hr />
-          <button onClick={signOut} className="btn btn-outline-secondary mt-2">
+          {
+            isAdmin() && 
+              <button onClick={() => goToPanel()} className="btn btn-outline-primary btn-sm">
+                Admin Panel
+              </button>
+          }
+          <button onClick={signOut} className="btn btn-outline-secondary btn-sm mt-2">
             Sign Out
           </button>
         </section>

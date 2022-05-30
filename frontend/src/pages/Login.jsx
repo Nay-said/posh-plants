@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { UserBaseURL } from '../enviroment'
+import { isDisabled } from '../service'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +31,7 @@ const Login = () => {
           navigate('/')
           window.location.reload()
         }, 2000);
+        setAdmin(res.data)
         localStorage.setItem('userToken-PoshPlants', res.data.token)
         localStorage.setItem('userEmail-PoshPlants', res.data.email)
         localStorage.setItem('userName-PoshPlants', res.data.name)
@@ -40,8 +42,9 @@ const Login = () => {
       })
   }
 
-  // Check if all form fileds have value, if not disable login button
-  const isDisabled = () => !Object.values(formData).every(prop => prop)
+  const setAdmin = userInfo => {
+    userInfo.isAdmin && localStorage.setItem('adminUser', userInfo.token)
+  }
   
   return (
     <div className="user-form-wrap">
@@ -68,7 +71,7 @@ const Login = () => {
             </p>
           </span>
         :
-          <button type="submit" className="btn btn-outline-secondary" disabled={isDisabled()}>
+          <button type="submit" className="btn btn-outline-secondary" disabled={isDisabled(formData)}>
             Log In
           </button>
         }

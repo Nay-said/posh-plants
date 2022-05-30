@@ -1,0 +1,62 @@
+#Panel {
+  padding: 30px 50px;
+}
+
+#Panel-Body {
+  width: 98%;
+  margin: 0 auto;
+}
+
+/* 
+  Product Management Page 
+*/
+
+/*   New Product    */
+#Create-Product {
+  margin: 50px auto 30px auto;
+}
+
+#Create-Product form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+#Create-Product .form-group {
+  margin: 15px 0;
+}
+
+/*   ProductPreview   */
+#Product-Preview {
+  width: 300px;
+  margin: 0 auto;
+}
+
+#Product-Preview > div {
+  padding: 0;
+}
+
+#Product-Preview > div:hover {
+  transform: scale(1);
+}
+
+@media screen and (max-width: 768px) {
+  #Panel {
+    padding: 15px 5px;
+  }
+
+  #Panel-Body {
+    width: 100%;
+  }
+
+  #Create-Product form {
+    width: 330px;
+  }
+
+  #Create-Product > div {
+    padding: 0;
+  }
+
+  #Product-Preview {
+    width: 310px;
+  }
+}

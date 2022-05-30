@@ -21,7 +21,7 @@ main {
 
 @media screen and (max-width: 768px) {
   #wrap {
-    margin: 20px 10px 0 20px;
+    margin: 20px 0 0 0;
   }
 }
 
@@ -59,7 +59,7 @@ main {
 /* Dialog */
 #Dialog {
   width: 250px;
-  height: 280px;
+  min-height: 280px;
   position: absolute;
   top: 66px;
   right: 50px;
@@ -94,4 +94,8 @@ main {
 #close-button:hover {
   cursor: pointer;
   color: gray;
+}
+
+#Dialog-content button {
+  width: 110px;
 }

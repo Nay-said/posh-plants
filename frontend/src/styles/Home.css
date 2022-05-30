@@ -99,6 +99,7 @@ img {
   margin: 30px auto;
   display: flex;
   justify-content: center;
+  overflow-x: auto;
 }
 
 .tab {
@@ -166,6 +167,10 @@ img {
 
 /* Media Query */
 @media screen and (max-width: 768px) {
+  #Home-Page {
+    margin: 25px;
+  }
+
   #heading {
     top: 30px;
     left: 45px;
@@ -173,5 +178,19 @@ img {
 
   #other-category > div {
     padding: 0;
+  }
+
+  #product  {
+    flex: 0 1 325px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #other-category > div:first-child {
+    padding-right: 10px;
+  }
+
+  #other-category > div:last-child {
+    padding-left: 10px;
   }
 }
