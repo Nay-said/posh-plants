@@ -12,6 +12,10 @@ const goalSchema = mongoose.Schema({
   type: {
     type: String,
     required: [true, 'Product type required!']
+  },
+  imgSrc: {
+    type: String,
+    required: [true, 'Image required!']
   }
 }, {
   timestamps: true

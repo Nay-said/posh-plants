@@ -7,9 +7,19 @@
   margin: 0 auto;
 }
 
-/* 
-  Product Management Page 
-*/
+/* Product Management Page */
+#Product-Manager img {
+  width: 80px;
+  height: 100px;
+}
+
+#product-actions > button {
+  display: block;
+  width: 100px;
+  margin: 10px 0 20px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
 
 /*   New Product    */
 #Create-Product {
@@ -21,7 +31,7 @@
   margin: 0 auto;
 }
 
-#Create-Product .form-group {
+.form-group {
   margin: 15px 0;
 }
 
@@ -59,4 +69,24 @@
   #Product-Preview {
     width: 310px;
   }
+}
+
+/* Edit Prosuct Dialog */
+#Edit-Dialog {
+  width: 500px;
+  height: 75vh;
+  overflow-y: auto;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #fff;
+  position: fixed;
+  top: 80px;
+  left: 33vw;
+  padding: 15px 20px;
+  box-shadow: 1px 1px 1px #c6c6c6;
+}
+
+#preview-img {
+  width: 60px !important;
+  height: 60px !important;
 }

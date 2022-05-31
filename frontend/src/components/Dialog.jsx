@@ -12,7 +12,7 @@ const Dialog = ({ onClose, signOut }) => {
   return (
     <div id="Dialog">
       <div id="Dialog-content">
-        <div id="close-button" onClick={onClose}>
+        <div className="close-button" onClick={onClose}>
           <i className="bi bi-x"></i>
         </div>
   

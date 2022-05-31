@@ -1,41 +1,59 @@
 import axios from 'axios'
-import { useState } from "react"
-import { headerConfig, isDisabled } from '../../service'
+import { useEffect, useState } from "react"
+import { AdminTableRow } from '../../components/AdminTableRow'
+import AdminEditDialog from '../../components/AdminEditDialog'
 import { ProductBaseURL } from '../../enviroment'
 
 const ProductManger = () => {
-  const [success, setSuccess] = useState(false)
-  const [fail, setFail] = useState(false)
-  const [formData, setFormData] = useState({
-    prodName: '',
-    price: '',
-    imgSrc: ''
-  })
-  const { prodName, price, imgSrc } = formData
+  const [products, setProducts] = useState([])
+  const [showDialog, setShowDialog] = useState(false)
+  const [dialogData, setDialogData] = useState({})
 
-  const onInputChange = e => {
-    setFormData(prevState => ({
-      ...prevState,
-      [e.target.name]: e.target.value
-    }))
+  useEffect(() => {
+    axios.get(`${ProductBaseURL}`)
+      .then(res => setProducts(res.data))
+      .catch(err => console.log(err))
+  }, [])
+
+  const toggleDialog = (e, prod, param) => {
+    setShowDialog(!showDialog)
+    param === 'Success' && window.location.reload()
+    !param && setDialogData(prod)
   }
 
-  const onSubmit = e => {
-    e.preventDefault()
-    axios.post(`${ProductBaseURL}`, formData, headerConfig)
-      .then(res => {
-        setSuccess(true)
-        console.log(res)
-      })
-      .catch(err => {
-        setFail(true)
-        console.log(err)
-      })
+  const handleDelete = prod => {
+    const confirm = window.confirm(`Are you sure you want to delete product: ${prod.productName}?`)
+    confirm && setProducts(products.filter(item => item._id !== prod._id)) 
+    // axios.delete(`${ProductBaseURL}delete/${prod._id}`)
+    //   .then(res => {
+    //     console.log(res)
+        
+    //   })
+    //   .err(err => console.log(err))
   }
 
   return (
     <div id="Product-Manager">
-      Manage products here
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Image</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          { products.map(prod => 
+            <AdminTableRow prod={prod} toggleDialog={toggleDialog} onDelete={handleDelete} key={prod._id} />
+          )}
+        </tbody>
+      </table>
+      { showDialog && 
+        <AdminEditDialog onClose={toggleDialog} data={dialogData} />
+      }
     </div>
   )
 }

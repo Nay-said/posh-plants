@@ -36,6 +36,7 @@ const createProducts = asyncHandler(async(req, res) => {
     productName: req.body.productName,
     price: req.body.price,
     type: req.body.type,
+    imgSrc: req.body.imgSrc
   })
   res.json(product)
 })
