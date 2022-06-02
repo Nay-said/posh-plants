@@ -121,7 +121,6 @@ const CreateProduct = () => {
       </div>
 
       <div className="col-0 col-md-0 col-xl-2"></div>
-      <hr />
     </section>
   )
 }

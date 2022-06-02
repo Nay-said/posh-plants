@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { getAuthToken, signOut } from '../service'
-import '../styles/Navbar.css'
-import Dialog from './Dialog'
+import { getAuthToken, signOut } from '../../service'
+import '../../styles/Navbar.css'
+import Dialog from '../Dialog'
 
 const Navbar = () => {
   const [userToken, setUserToken] = useState('')

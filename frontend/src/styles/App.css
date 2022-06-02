@@ -12,6 +12,25 @@ main {
   width: 100%;
 }
 
+/* Footer */
+#Footer {
+  width: 80vw;
+  margin: 50px auto;
+}
+
+#Footer p {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-style: italic;
+  font-weight: 500;
+  color: gray;
+}
+
+#Footer hr {
+  border: 0.5px solid #cfcfcf;
+}
+
 @media screen and (min-width: 1800px) {
   #wrap {
     max-width: 1700px;

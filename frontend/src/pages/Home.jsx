@@ -45,7 +45,6 @@ const Home = () => {
 
         <TabPane prodsForDisplay={dataForRander(tabIndex)} />
         
-        <div className="pt-3" style={{height: '500px'}}></div>
       </section>
     </div>
   )
