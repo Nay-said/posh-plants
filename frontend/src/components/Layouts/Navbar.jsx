@@ -40,7 +40,7 @@ const Navbar = () => {
       </section>
 
       {/* Expanded Nav Menu */}
-      <ul className="navbar-nav mb-2 mb-lg-0 d-none d-md-flex">
+      <ul id="menu-expand" className="navbar-nav mb-2 mb-lg-0 d-none d-md-flex">
         <li className="nav-item pe-3">
           <a className="nav-link" aria-current="page" href="/">Home</a>
         </li>
