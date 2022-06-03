@@ -168,7 +168,7 @@ img {
 /* Media Query */
 @media screen and (max-width: 768px) {
   #Home-Page {
-    margin: 25px;
+    margin: 25px 10px 10px 10px;
   }
 
   #heading {
