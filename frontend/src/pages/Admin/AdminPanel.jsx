@@ -5,7 +5,6 @@ import "../../styles/Admin.css"
 import Dashboard from "./Dashboard";
 import ProductManger from "./ProductManger";
 import CreateProduct from "./CreateProduct";
-import Users from "./Users"
 
 const AdminPanel = () => {
   const setActive = ({isActive}) => isActive ? activeClass : 'tab'
@@ -27,9 +26,6 @@ const AdminPanel = () => {
           <NavLink to='/Admin/New-Product' className={setActive}>
             New Product
           </NavLink >
-          <NavLink to='/Admin/Users' className={setActive}>
-            Users List
-          </NavLink >
         </section>
 
         <section id="Panel-Body">
@@ -37,7 +33,6 @@ const AdminPanel = () => {
             <Route path='/Dashboard' element={<Dashboard />} />
             <Route path='/Products' element={<ProductManger />} />
             <Route path='/New-Product' element={<CreateProduct />} />
-            <Route path='/Users' element={<Users />} />
           </Routes>
         </section>
 

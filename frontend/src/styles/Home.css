@@ -4,7 +4,7 @@
 
 .row > div {
   max-height: 500px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   overflow-y: hidden;
 }
 
@@ -182,6 +182,12 @@ img {
 
   #product  {
     flex: 0 1 325px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  #Home-Page {
+    margin: 25px 50px 10px 50px;
   }
 }
 

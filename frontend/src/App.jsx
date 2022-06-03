@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { isAdmin } from './service'
 import './styles/App.css';
+import Navbar from './components/Layouts/Navbar';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProductDetail from './pages/ProductDetail'
 import AdminPanel from "./pages/Admin/AdminPanel";
-import Navbar from "./components/Layouts/Navbar";
 import Footer from "./components/Layouts/Footer";
 
 function App() {

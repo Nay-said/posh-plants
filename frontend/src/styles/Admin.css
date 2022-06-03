@@ -3,8 +3,7 @@
 }
 
 #Panel-Body {
-  width: 98%;
-  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 /* Product Management Page */
@@ -89,4 +88,14 @@
 #preview-img {
   width: 60px !important;
   height: 60px !important;
+}
+
+/* Dash Board */
+#Dashboard {
+  padding-top: 20px;
+}
+
+#polar-chart {
+  width: 600px;
+  margin: 0 auto;
 }
