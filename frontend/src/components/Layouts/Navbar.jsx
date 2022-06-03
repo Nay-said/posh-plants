@@ -17,14 +17,14 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-light">
       <section id="collapse-wrap">
-        <label class="navbar-toggler" for="menu-toggler">
-          <span class="navbar-toggler-icon"></span>
+        <label className="navbar-toggler" htmlFor="menu-toggler">
+          <span className="navbar-toggler-icon"></span>
         </label>
-        <input type="checkbox" id="menu-toggler" class="d-none"></input>
+        <input type="checkbox" id="menu-toggler" className="d-none"></input>
         
         {/* Collapse Nav Menu for Mobile */}
         <ul id="collapse-menu">
-          <li class="nav-item">
+          <li className="nav-item">
             <a href="/">Home</a>
           </li>
           <li className="nav-item">
