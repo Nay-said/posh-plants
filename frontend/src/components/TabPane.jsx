@@ -7,7 +7,7 @@ const TabPane = ({ prodsForDisplay, tabName }) => {
       {
         prodsForDisplay.length > 0 ?
           prodsForDisplay.map((prod, index) => 
-            <Product productInfo={prod} key={index} prodId={index} />
+            <Product productInfo={prod} key={index} />
           )
         :
         <h6>No produts available on {tabName}</h6>

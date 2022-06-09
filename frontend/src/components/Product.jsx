@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Product = ({ productInfo, prodId }) => {
+const Product = ({ productInfo }) => {
   return (
     <div id='product'>
-      <a href={`/Product/${prodId}`}>
+      <a href={`/Product/${productInfo._id}`}>
         { productInfo.imgSrc ? 
             <img src={productInfo.imgSrc} alt={`${productInfo.productName}`} />
           :

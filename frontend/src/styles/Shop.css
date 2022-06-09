@@ -26,3 +26,15 @@
     padding: 20px 10px;
   }
 }
+
+/* Product Detail Page */
+#Prod-Detil {
+  width: 700px;
+  margin: 30px auto;
+}
+
+@media screen and (max-width: 576px) {
+  #Prod-Detil {
+    width: 300px;
+  }
+}
