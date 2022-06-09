@@ -10,9 +10,26 @@
   font-weight: 500;
 }
 
-#tab-menu > a {
+#tab-menu > div {
+  height: 50px;
+}
+
+#tab-menu a {
   color: black;
   text-decoration: none;
+}
+
+@media screen and (max-width: 576px) {
+  #tab-menu {
+    width: 80vw;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  #tab-menu {
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -33,7 +50,7 @@
   margin: 30px auto;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   #Prod-Detil {
     width: 300px;
   }

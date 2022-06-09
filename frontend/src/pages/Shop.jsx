@@ -27,11 +27,21 @@ const Shop = () => {
       </section>
 
       <section id='tab-menu'>
-        <NavLink to='/Shop/All' className={setActive}>All</NavLink >
-        <NavLink to="/Shop/Hoyas" className={setActive}>Hoyas</NavLink>
-        <NavLink to="/Shop/Aroids" className={setActive}>Aroids</NavLink>
-        <NavLink to="/Shop/Accsory" className={setActive}>Accessories</NavLink>
-        <NavLink to="/Shop/Sale" className={setActive}>Sale</NavLink>
+        <div>
+          <NavLink to='/Shop/All' className={setActive}>All</NavLink >
+        </div>
+        <div>
+          <NavLink to="/Shop/Hoyas" className={setActive}>Hoyas</NavLink>
+        </div>
+        <div>
+          <NavLink to="/Shop/Aroids" className={setActive}>Aroids</NavLink>
+        </div>
+        <div>
+          <NavLink to="/Shop/Accsory" className={setActive}>Accessories</NavLink>
+        </div>
+        <div>
+          <NavLink to="/Shop/Sale" className={setActive}>Sale</NavLink>
+        </div>
       </section>
 
       <section>

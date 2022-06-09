@@ -78,6 +78,12 @@ h1 {
   text-decoration: underline;
 }
 
+@media screen and (max-width: 400px) {
+  #menu-toggler:checked ~ #collapse-menu {
+    top: 30px !important;
+  }
+}
+
 @media screen and (max-width: 767px) {
   nav {
     padding: 0 !important;
@@ -96,11 +102,11 @@ h1 {
     list-style: none;
     width: 100vw;
     position: absolute;
-    top: 60px;
+    top: 40px;
     left: 0;
     z-index: 990;
     background-color: #ffffff;
-    padding: 0 50px 20px 20px;
+    padding: 30px 50px 20px 20px;
     border-bottom: 2px solid #dfdfdf;
   }
 

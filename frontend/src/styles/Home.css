@@ -98,7 +98,6 @@ img {
 #tab-menu {
   margin: 30px auto;
   display: flex;
-  justify-content: center;
   overflow-x: auto;
 }
 

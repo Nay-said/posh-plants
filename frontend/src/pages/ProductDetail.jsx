@@ -22,7 +22,7 @@ const Product = () => {
   
         <div className="col-12 col-md-6 ps-md-5">
           <h3>{productInfo.productName}</h3>
-          <p><i>- {productInfo.type}</i></p>
+          <p><i>{productInfo.type}</i></p>
           <div className="my-5">
             <span><strong>$ {productInfo.price}</strong></span>
   
@@ -32,6 +32,13 @@ const Product = () => {
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="my-3 pb-3">
+        <h5>{productInfo.productName} - Product Detail</h5>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit officiis accusamus necessitatibus dolore vitae optio veritatis error deleniti dolores soluta vel facere aliquid, perferendis fuga quod. A maxime optio, natus laudantium quibusdam aspernatur quidem explicabo praesentium, corrupti perspiciatis, non ratione enim quos sunt voluptatem animi! Voluptates magni sequi dolorem hic consequatur officiis at velit optio ullam. Dolorum exercitationem vel eligendi fugiat mollitia officiis modi magnam consequatur fuga molestiae asperiores a optio laboriosam ratione molestias, possimus, suscipit atque, illum iste id iure tempora in nobis quae. Consequatur, veniam maiores? Dolores nulla, commodi labore dolor fugiat quidem totam natus eaque! Ea, iste!
+        </p>
       </div>
     </section>
   )

@@ -34,6 +34,10 @@ const ProductManger = () => {
 
   return (
     <div id="Product-Manager">
+      <p className="text-danger">
+        <i>*For dev and testing purposes, soft delete is implemented in this page temporarily. Everyting will come back on page refresh.</i>
+      </p>
+      
       <table className="table">
         <thead>
           <tr>
