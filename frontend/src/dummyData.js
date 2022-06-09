@@ -15,6 +15,39 @@ export const salesProducts = [
   }
 ]
 
+export const NewProds = [
+  {
+    productName: 'Curtisii',
+    imgSrc: 'https://sproutsandstems.com/wp-content/uploads/2021/10/Hoya-Curtisii.jpg',
+    type: 'Hoya',
+    price: 66
+  },
+  {
+    productName: 'Thailandica',
+    imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmhIqQMkQQZuNQCwJUjMZchawVDIVZTN-egQ&usqp=CAU',
+    type: 'Hoya',
+    price: 32
+  },
+  {
+    productName: 'Acuta',
+    imgSrc: 'https://trademe.tmcdn.co.nz/photoserver/plus/1737587042.jpg',
+    type: 'Hoya',
+    price: 78
+  },
+  {
+    productName: 'Obovata',
+    imgSrc: 'https://cdn.shopify.com/s/files/1/0267/6840/8639/products/IMG_9922.jpg?v=1642307792&width=800',
+    type: 'Hoya',
+    price: 29
+  },
+  {
+    productName: 'Australis',
+    imgSrc: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTbQMan1mo2TKT7PGveXQkur_uGSMx-zDSCQgQ8dbBfkNf4KvsnsIo-cyQyN3sgrR99pSIT2xVIQmHzNNgXOvYmBjrlZ8agqoAgvi534eX9mEoKmKyOXT2H5A&usqp=CAE',
+    category: 'Hoya',
+    price: 99
+  }
+]
+
 // Dev Dummy Data
 export const allProducts = [
   {
@@ -94,59 +127,5 @@ export const Aroids = [
     imgSrc: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTbQMan1mo2TKT7PGveXQkur_uGSMx-zDSCQgQ8dbBfkNf4KvsnsIo-cyQyN3sgrR99pSIT2xVIQmHzNNgXOvYmBjrlZ8agqoAgvi534eX9mEoKmKyOXT2H5A&usqp=CAE',
     category: 'Aroids',
     price: 99
-  }
-]
-
-export const NewProds = [
-  {
-    productName: 'Hoya Curtisii',
-    imgSrc: 'https://sproutsandstems.com/wp-content/uploads/2021/10/Hoya-Curtisii.jpg',
-    category: 'Hoyas',
-    price: 66
-  },
-  {
-    productName: 'Hoya thailandica',
-    imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmhIqQMkQQZuNQCwJUjMZchawVDIVZTN-egQ&usqp=CAU',
-    category: 'Hoyas',
-    price: 32
-  },
-  {
-    productName: 'Hoya Acuta',
-    imgSrc: 'https://trademe.tmcdn.co.nz/photoserver/plus/1737587042.jpg',
-    category: 'Hoyas',
-    price: 78
-  },
-  {
-    productName: 'Hoya Obovata',
-    imgSrc: 'https://cdn.shopify.com/s/files/1/0267/6840/8639/products/IMG_9922.jpg?v=1642307792&width=800',
-    category: 'Hoyas',
-    price: 29
-  },
-  {
-    productName: 'Hoya Australis',
-    imgSrc: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTbQMan1mo2TKT7PGveXQkur_uGSMx-zDSCQgQ8dbBfkNf4KvsnsIo-cyQyN3sgrR99pSIT2xVIQmHzNNgXOvYmBjrlZ8agqoAgvi534eX9mEoKmKyOXT2H5A&usqp=CAE',
-    category: 'Hoyas',
-    price: 99
-  }
-]
-
-export const ProdsOnSale = [
-  {
-    productName: 'Hoya Acuta',
-    imgSrc: 'https://trademe.tmcdn.co.nz/photoserver/plus/1737587042.jpg',
-    category: 'Hoyas',
-    price: 30
-  },
-  {
-    productName: 'Hoya Obovata',
-    imgSrc: 'https://cdn.shopify.com/s/files/1/0267/6840/8639/products/IMG_9922.jpg?v=1642307792&width=800',
-    category: 'Hoyas',
-    price: 29
-  },
-  {
-    productName: 'Hoya Curtisii',
-    imgSrc: 'https://sproutsandstems.com/wp-content/uploads/2021/10/Hoya-Curtisii.jpg',
-    category: 'Aroids',
-    price: 66
   }
 ]

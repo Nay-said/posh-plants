@@ -4,15 +4,15 @@ import SmallBanner from '../components/SmallBanner'
 import TabPane from '../components/TabPane'
 import PopUp from '../components/PopUp'
 import { HoyaBanner, AroidsBanner, WelcomeMessage, Links } from '../assets/frontendResources'
-import { NewProds, ProdsOnSale } from '../dummyData'
 import '../styles/Home.css'
 import '../styles/PopUp.css'
 import { getAuthToken } from '../service'
+import { NewProds, salesProducts } from '../dummyData'
 
 const Home = () => {
   const [tabIndex, setTabIndex] = useState(1)
   const [showWelcomeMessage, setWelcome] = useState(false)
-  const tabType = { 1: NewProds, 2: ProdsOnSale }
+  const tabType = { 1: NewProds, 2: salesProducts }
   const setActive = i => tabIndex === i ? 'tab active-tab' : 'tab'
   const dataForRander = tabIndex => tabType[tabIndex] ?? NewProds
 
