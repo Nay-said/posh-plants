@@ -165,6 +165,10 @@ img {
   font-weight: 600;
 }
 
+#tab-pane h6 {
+  margin: 80px 0;
+}
+
 /* Media Query */
 @media screen and (max-width: 768px) {
   #Home-Page {

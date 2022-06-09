@@ -1,23 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../styles/Shop.css'
 import TabPane from '../components/TabPane'
 import { ProductBaseURL } from '../enviroment'
 import { Routes, Route, NavLink } from "react-router-dom";
-import { allProducts, Hoyas, Aroids, NewProds, ProdsOnSale } from '../dummyData'
+import { salesProducts } from '../dummyData'
 
 const Shop = () => {
-  const tabData = { 1: allProducts, 2: Hoyas, 3: Aroids, 4: NewProds, 5: ProdsOnSale }
-  // const tabs = { 1: 'All', 2: 'Hoyas', 3: 'Aroids', 4: 'New', 5: 'Sale' }
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     axios.get(`${ProductBaseURL}`)
-      .then(res => {
-        // console.log(res.data)
-      })
+      .then(res => setProducts(res.data))
+      .catch(err => console.log(err))
   }, [])
-
-  const dataForRander = tabIndex => tabData[tabIndex] ?? 'NewProds'
+  
+  const tabProds = prodType => products.filter(prod => prod.type === prodType)
 
   const setActive = ({isActive}) => isActive ? activeClass : 'tab'
   const activeClass = 'tab active-tab'
@@ -39,23 +37,23 @@ const Shop = () => {
       <section>
         <Routes>
           <Route path='/All' element={
-            <TabPane prodsForDisplay={dataForRander(1)} /> 
+            <TabPane prodsForDisplay={products} tabName={'All'} /> 
           } />
 
           <Route path='/Hoyas' element={
-            <TabPane prodsForDisplay={dataForRander(2)} /> 
+            <TabPane prodsForDisplay={tabProds('Hoya')} tabName={'Hoya'} /> 
           } />
 
           <Route path='/Aroids' element={
-            <TabPane prodsForDisplay={dataForRander(3)} /> 
+            <TabPane prodsForDisplay={tabProds('Arodios')} tabName={'Arodios'} /> 
           } />
 
           <Route path='/Accsory' element={
-            <TabPane prodsForDisplay={dataForRander(4)} /> 
+            <TabPane prodsForDisplay={tabProds('Accessories')} tabName={'Accessories'} /> 
           } />
 
           <Route path='/Sale' element={
-            <TabPane prodsForDisplay={dataForRander(5)} /> 
+            <TabPane prodsForDisplay={salesProducts} tabName={'Sale'} /> 
           } />
         </Routes>
       </section>
