@@ -39,8 +39,12 @@ const Home = () => {
 
       <section>
         <div id="tab-menu">
-          <div className={setActive(1)} onClick={() => setTabIndex(1)}>New</div>
-          <div className={setActive(2)} onClick={() => setTabIndex(2)}>Sale</div>
+          <div onClick={() => setTabIndex(1)}>
+            <span className={setActive(1)}>New</span>
+          </div>
+          <div onClick={() => setTabIndex(2)}>
+            <span className={setActive(2)}>Sale</span>
+          </div>
         </div>
 
         <TabPane prodsForDisplay={dataForRander(tabIndex)} />
