@@ -1,30 +1,40 @@
-import axios from 'axios'
+import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import { ProductBaseURL } from '../enviroment'
 
-const Product = () => {
-  const [productInfo, setProductInfo] = useState([])
+const ProductDetail = ({ productInfo }) => {
+  const [prod, setProd] = useState({})
+  const navigate = useNavigate();
   const params = useParams();
 
   useEffect(() => {
-    axios.get(`${ProductBaseURL}/${params.id}`)
-      .then(res => setProductInfo(res.data))
+    productInfo._id ?
+      setProd(productInfo)
+    :
+      axios.get(`${ProductBaseURL}/${params.id}`)
+      .then(res => setProd(res.data))
       .catch(err => console.log(err))
-  })
+  }, [productInfo, params.id])
 
   return (
     <section id="Prod-Detil">
+      <div id="Go-Back" onClick={() => navigate(-1)} className="btn btn-outline-secondary">
+        <i className="bi bi-arrow-90deg-left"></i> &nbsp;
+        Back
+      </div>
+
       <div className="row mt-3">
         <div className="col-12 col-md-6">
-          <img src={productInfo.imgSrc} alt={productInfo.productName} />
+          <img src={prod.imgSrc} alt={prod.productName} />
         </div>
   
         <div className="col-12 col-md-6 ps-md-5">
-          <h3>{productInfo.productName}</h3>
-          <p><i>{productInfo.type}</i></p>
+          <h3>{prod.productName}</h3>
+          <p><i>{prod.type}</i></p>
           <div className="my-5">
-            <span><strong>$ {productInfo.price}</strong></span>
+            <span><strong>$ {prod.price}</strong></span>
   
             <button type="button" className="btn btn-outline-success ms-5">
               <i className="bi bi-cart-plus"></i> &nbsp;
@@ -35,7 +45,7 @@ const Product = () => {
       </div>
 
       <div className="my-3 pb-3">
-        <h5>{productInfo.productName} - Product Detail</h5>
+        <h5>{prod.productName} - Product Detail</h5>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit officiis accusamus necessitatibus dolore vitae optio veritatis error deleniti dolores soluta vel facere aliquid, perferendis fuga quod. A maxime optio, natus laudantium quibusdam aspernatur quidem explicabo praesentium, corrupti perspiciatis, non ratione enim quos sunt voluptatem animi! Voluptates magni sequi dolorem hic consequatur officiis at velit optio ullam. Dolorum exercitationem vel eligendi fugiat mollitia officiis modi magnam consequatur fuga molestiae asperiores a optio laboriosam ratione molestias, possimus, suscipit atque, illum iste id iure tempora in nobis quae. Consequatur, veniam maiores? Dolores nulla, commodi labore dolor fugiat quidem totam natus eaque! Ea, iste!
         </p>
@@ -43,4 +53,4 @@ const Product = () => {
     </section>
   )
 }
-export default Product
+export default ProductDetail

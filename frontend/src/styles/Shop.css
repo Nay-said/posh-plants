@@ -50,6 +50,10 @@
   margin: 30px auto;
 }
 
+#Go-Back {
+  width: 100px;
+}
+
 @media screen and (max-width: 768px) {
   #Prod-Detil {
     width: 300px;

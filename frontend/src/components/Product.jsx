@@ -1,9 +1,9 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
-const Product = ({ productInfo }) => {
+const Product = ({ productInfo, setProdDetail }) => {
   return (
     <div id='product'>
-      <a href={`/Product/${productInfo._id}`}>
+      <Link to={`/Product/${productInfo._id}`} onClick={() => setProdDetail(productInfo)}>
         { productInfo.imgSrc ? 
             <img src={productInfo.imgSrc} alt={`${productInfo.productName}`} />
           :
@@ -16,7 +16,7 @@ const Product = ({ productInfo }) => {
         }
 
         <p id='product-price'>$ {productInfo.price}</p>
-      </a>
+      </Link>
     </div>
   )
 }

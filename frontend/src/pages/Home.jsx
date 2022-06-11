@@ -9,10 +9,10 @@ import '../styles/PopUp.css'
 import { getAuthToken } from '../service'
 import { NewProds, salesProducts } from '../dummyData'
 
-const Home = () => {
-  const [tabIndex, setTabIndex] = useState(1)
+const Home = ({ setProdDetail }) => {
+  const [tabIndex, setTabIndex] = useState('New')
   const [showWelcomeMessage, setWelcome] = useState(false)
-  const tabType = { 1: NewProds, 2: salesProducts }
+  const tabType = { New: NewProds, Sale: salesProducts }
   const setActive = i => tabIndex === i ? 'tab active-tab' : 'tab'
   const dataForRander = tabIndex => tabType[tabIndex] ?? NewProds
 
@@ -39,16 +39,15 @@ const Home = () => {
 
       <section>
         <div id="tab-menu">
-          <div onClick={() => setTabIndex(1)}>
-            <span className={setActive(1)}>New</span>
+          <div onClick={() => setTabIndex('New')}>
+            <span className={setActive('New')}>New</span>
           </div>
-          <div onClick={() => setTabIndex(2)}>
-            <span className={setActive(2)}>Sale</span>
+          <div onClick={() => setTabIndex('Sale')}>
+            <span className={setActive('Sale')}>Sale</span>
           </div>
         </div>
 
-        <TabPane prodsForDisplay={dataForRander(tabIndex)} />
-        
+        <TabPane prodsForDisplay={dataForRander(tabIndex)} tabName={tabIndex} setProdDetail={setProdDetail} />
       </section>
     </div>
   )

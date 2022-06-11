@@ -6,7 +6,7 @@ import { ProductBaseURL } from '../enviroment'
 import { Routes, Route, NavLink } from "react-router-dom";
 import { salesProducts } from '../dummyData'
 
-const Shop = () => {
+const Shop = ({ setProdDetail }) => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -46,24 +46,24 @@ const Shop = () => {
 
       <section>
         <Routes>
-          <Route path='/All' element={
-            <TabPane prodsForDisplay={products} tabName={'All'} /> 
+          <Route path='/All/*' element={
+            <TabPane prodsForDisplay={products} tabName={'All'} setProdDetail={setProdDetail} /> 
           } />
 
-          <Route path='/Hoyas' element={
-            <TabPane prodsForDisplay={tabProds('Hoya')} tabName={'Hoya'} /> 
+          <Route path='/Hoyas/*' element={
+            <TabPane prodsForDisplay={tabProds('Hoya')} tabName={'Hoya'} setProdDetail={setProdDetail} /> 
           } />
 
-          <Route path='/Aroids' element={
-            <TabPane prodsForDisplay={tabProds('Arodios')} tabName={'Arodios'} /> 
+          <Route path='/Aroids/*' element={
+            <TabPane prodsForDisplay={tabProds('Arodios')} tabName={'Arodios'} setProdDetail={setProdDetail} /> 
           } />
 
-          <Route path='/Accsory' element={
-            <TabPane prodsForDisplay={tabProds('Accessories')} tabName={'Accessories'} /> 
+          <Route path='/Accsory/*' element={
+            <TabPane prodsForDisplay={tabProds('Accessories')} tabName={'Accessories'} setProdDetail={setProdDetail} /> 
           } />
 
-          <Route path='/Sale' element={
-            <TabPane prodsForDisplay={salesProducts} tabName={'Sale'} /> 
+          <Route path='/Sale/*' element={
+            <TabPane prodsForDisplay={salesProducts} tabName={'Sale'} setProdDetail={setProdDetail} /> 
           } />
         </Routes>
       </section>
