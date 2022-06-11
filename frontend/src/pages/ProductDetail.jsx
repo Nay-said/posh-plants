@@ -1,22 +1,16 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom';
-import { ProductBaseURL } from '../enviroment'
 
 const ProductDetail = ({ productInfo }) => {
-  const [prod, setProd] = useState({})
+  const [prod] = useState(() => 
+    productInfo._id ? 
+      productInfo 
+    : 
+      JSON.parse(sessionStorage.getItem('curProd'))
+  )
   const navigate = useNavigate();
-  const params = useParams();
-
-  useEffect(() => {
-    productInfo._id ?
-      setProd(productInfo)
-    :
-      axios.get(`${ProductBaseURL}/${params.id}`)
-      .then(res => setProd(res.data))
-      .catch(err => console.log(err))
-  }, [productInfo, params.id])
+  
+  useEffect(() => sessionStorage.setItem('curProd', JSON.stringify(prod)), [prod])
 
   return (
     <section id="Prod-Detil">
