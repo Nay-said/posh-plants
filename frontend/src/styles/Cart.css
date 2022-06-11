@@ -1,0 +1,37 @@
+#Cart {
+  padding: 50px;
+}
+
+#cart-body {
+  width: 360px;
+  margin: 30px auto 10px auto;
+  padding: 0 10px;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+#Cart button {
+  width: 130px;
+}
+
+#Cart img {
+  width: 50px;
+}
+
+.remove-cart-item:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+  #Cart {
+    padding: 0;
+  }
+
+}
+
+@media screen and (max-width: 350px) {
+  #cart-body {
+    width: 300px;
+   }
+}

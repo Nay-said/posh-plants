@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { isAdmin } from './service'
 import './styles/App.css';
 import Navbar from './components/Layouts/Navbar';
@@ -11,9 +11,32 @@ import AdminPanel from "./pages/Admin/AdminPanel";
 import Footer from "./components/Layouts/Footer";
 import ProductDetail from "./pages/ProductDetail";
 import ScrollToTop from "./assets/ScrollToTop";
+import Cart from "./pages/Cart";
 
 function App() {
   const [prodDetail, setProdDetail] = useState({})
+  const [cartProds, setCartProds] = useState([])
+
+  useEffect(() => {
+    console.log('Cart:', cartProds)
+    sessionStorage.setItem('PoshPlantCart', JSON.stringify(cartProds))
+  }, [cartProds])
+
+  const redundantIndex = prod => cartProds.findIndex(e => e._id === prod._id)
+
+  const handleAddToCart = prod => {
+    const i = redundantIndex(prod)
+    const R = () => {
+     
+      const newData = Object.assign([...cartProds], {
+        [i]: {...cartProds[i], quantity: cartProds[i].quantity + 1}
+      })
+      setCartProds(newData)
+    }
+    
+    i === -1 && setCartProds([...cartProds, prod])
+    i !== -1 && R()
+  }
 
   return (
     <div id="wrap">
@@ -23,8 +46,9 @@ function App() {
           <ScrollToTop>
             <Routes>
               <Route path="/" element={<Home setProdDetail={setProdDetail} />} />
+              <Route path="/Cart" element={<Cart cartProds={cartProds} />} />
               <Route path="/Shop/*" element={<Shop setProdDetail={setProdDetail} />} />
-              <Route path="/Product/:id" element={<ProductDetail productInfo={prodDetail} />} />
+              <Route path="/Product/:id" element={<ProductDetail productInfo={prodDetail} onAddToCart={handleAddToCart} />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Signup" element={<Signup />} />
               { isAdmin() && 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAuthToken, signOut } from '../../service'
+import { Link } from "react-router-dom";
 import '../../styles/Navbar.css'
 import Dialog from '../Dialog'
 
@@ -67,10 +68,16 @@ const Navbar = () => {
             <a href="/Login"><i className="bi bi-person-plus"></i></a>
           }
         </div>
-        <div id="cart"><i className="bi bi-cart3"></i></div>
+        <div id="cart">
+          <Link to={`/Cart`}>
+            <i className="bi bi-cart3"></i>
+          </Link>
+        </div>
       </section>
 
-      { showDialog && <Dialog onClose={toggleDialog} signOut={signOut} /> }
+      { showDialog && 
+        <Dialog onClose={toggleDialog} signOut={signOut} /> 
+      }
     </nav>
   )
 }

@@ -1,24 +1,27 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import BackButton from '../components/BackButton';
 
-const ProductDetail = ({ productInfo }) => {
+const ProductDetail = ({ productInfo, onAddToCart }) => {
+  const [success, setSuccess] = useState(false)
   const [prod] = useState(() => 
     productInfo._id ? 
       productInfo 
     : 
       JSON.parse(sessionStorage.getItem('curProd'))
   )
-  const navigate = useNavigate();
   
   useEffect(() => sessionStorage.setItem('curProd', JSON.stringify(prod)), [prod])
 
+  const addToCart = () => {
+    prod['quantity'] = 1
+    onAddToCart(prod)
+    setSuccess(true)
+  }
+
   return (
     <section id="Prod-Detil">
-      <div id="Go-Back" onClick={() => navigate(-1)} className="btn btn-outline-secondary">
-        <i className="bi bi-arrow-90deg-left"></i> &nbsp;
-        Back
-      </div>
-
+      <BackButton />
       <div className="row mt-3">
         <div className="col-12 col-md-6">
           <img src={prod.imgSrc} alt={prod.productName} />
@@ -30,10 +33,23 @@ const ProductDetail = ({ productInfo }) => {
           <div className="my-5">
             <span><strong>$ {prod.price}</strong></span>
   
-            <button type="button" className="btn btn-outline-success ms-5">
+            <button onClick={() => addToCart()} type="button" className="btn btn-outline-success ms-5">
               <i className="bi bi-cart-plus"></i> &nbsp;
               Add to Cart
             </button>
+
+            { success &&
+              <div id="Success" className="text-success mt-5">
+                <i className="bi bi-check-circle-fill"></i> &nbsp;
+                Added to Cart!
+                <br />
+                <Link to={'/Cart'}>
+                  <button className='btn btn-sm btn-outline-secondary mt-3'>
+                  View your cart
+                  </button>
+                </Link>
+              </div>
+            }
           </div>
         </div>
       </div>
