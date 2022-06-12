@@ -34,7 +34,7 @@ function App() {
   return (
     <div id="wrap">
       <BrowserRouter>
-        <Navbar />
+        <Navbar cart={cartProds} />
         <main>
           <ScrollToTop>
             <Routes>

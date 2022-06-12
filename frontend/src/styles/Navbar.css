@@ -66,6 +66,17 @@ h1 {
 
 #cart {
   font-size: 23px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#cart-mark {
+  position: absolute;
+  top: -5px;
+  left: 30%;
+  color: gray;
+  font-size: 10px;
 }
 
 .navbar-nav a {

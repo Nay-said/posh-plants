@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 import '../../styles/Navbar.css'
 import Dialog from '../Dialog'
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   const [userToken, setUserToken] = useState('')
   const [showDialog, setShowDialog] = useState(false)
+  const [numInCart, setNumInCart] = useState(cart.length)
   
   useEffect(() => {
     const token = getAuthToken()
     token && setUserToken(token)
   }, [userToken])
+
+  useEffect(() => setNumInCart(cart.length), [cart.length])
 
   const toggleDialog = () => setShowDialog(!showDialog)
 
@@ -71,6 +74,7 @@ const Navbar = () => {
         <div id="cart">
           <Link to={`/Cart`}>
             <i className="bi bi-cart3"></i>
+            { numInCart > 0 && <div id="cart-mark">{numInCart}</div>}
           </Link>
         </div>
       </section>
