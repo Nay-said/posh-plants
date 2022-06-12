@@ -1,7 +1,7 @@
-const CartProduct = ({ product }) => {
+const CartProduct = ({ product, onRemove }) => {
   return (
     <div className="cart-prod">
-      <div className="remove-cart-item d-inline-block">
+      <div onClick={() => onRemove(product)} className="remove-cart-item d-inline-block">
         <i className="bi bi-x-circle text-danger me-2"></i>
       </div>
       <img src={product.imgSrc} alt={product.productName} />

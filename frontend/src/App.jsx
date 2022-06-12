@@ -17,25 +17,18 @@ function App() {
   const [prodDetail, setProdDetail] = useState({})
   const [cartProds, setCartProds] = useState([])
 
-  useEffect(() => {
-    console.log('Cart:', cartProds)
-    sessionStorage.setItem('PoshPlantCart', JSON.stringify(cartProds))
-  }, [cartProds])
+  useEffect(() => sessionStorage.setItem('PoshPlantCart', JSON.stringify(cartProds)), [cartProds])
 
-  const redundantIndex = prod => cartProds.findIndex(e => e._id === prod._id)
+  const indexOfRedundant = param => cartProds.findIndex(element => element._id === param._id)
 
   const handleAddToCart = prod => {
-    const i = redundantIndex(prod)
-    const R = () => {
-     
-      const newData = Object.assign([...cartProds], {
-        [i]: {...cartProds[i], quantity: cartProds[i].quantity + 1}
-      })
-      setCartProds(newData)
-    }
-    
-    i === -1 && setCartProds([...cartProds, prod])
-    i !== -1 && R()
+    const index = indexOfRedundant(prod)
+    const handleRedundantProd = () => setCartProds(
+      Object.assign([...cartProds], {
+        [index]: {...cartProds[index], quantity: cartProds[index].quantity + 1}
+      }))
+    index === -1 && setCartProds([...cartProds, prod])
+    index !== -1 && handleRedundantProd()
   }
 
   return (
@@ -46,9 +39,9 @@ function App() {
           <ScrollToTop>
             <Routes>
               <Route path="/" element={<Home setProdDetail={setProdDetail} />} />
-              <Route path="/Cart" element={<Cart cartProds={cartProds} />} />
+              <Route path="/Cart" element={<Cart cartProds={cartProds} onCartChange={setCartProds} />} />
               <Route path="/Shop/*" element={<Shop setProdDetail={setProdDetail} />} />
-              <Route path="/Product/:id" element={<ProductDetail productInfo={prodDetail} onAddToCart={handleAddToCart} />} />
+              <Route path="/Product/:id" element={<ProductDetail productInfo={prodDetail} onAddToCart={handleAddToCart} cart={cartProds} />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Signup" element={<Signup />} />
               { isAdmin() && 
@@ -63,7 +56,7 @@ function App() {
       </BrowserRouter>
       <Footer />
     </div>
-  );
+  )
 }
 
 export default App;

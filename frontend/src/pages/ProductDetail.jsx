@@ -2,16 +2,25 @@ import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import BackButton from '../components/BackButton';
 
-const ProductDetail = ({ productInfo, onAddToCart }) => {
+const ProductDetail = ({ productInfo, onAddToCart, cart }) => {
   const [success, setSuccess] = useState(false)
+  const [qtyInCart, setQtyInCart] = useState(0)
   const [prod] = useState(() => 
-    productInfo._id ? 
-      productInfo 
-    : 
-      JSON.parse(sessionStorage.getItem('curProd'))
+    // After page refresh, get current prod info from storage 
+    productInfo._id ? productInfo : JSON.parse(sessionStorage.getItem('curProd'))
   )
   
+  // Save prod info into storage on page load in case page refreshes
   useEffect(() => sessionStorage.setItem('curProd', JSON.stringify(prod)), [prod])
+
+  useEffect(() => {
+    const indexInCart = param => 
+      cart && cart.findIndex(element => element._id === param._id)
+    const i = productInfo._id ? 
+      indexInCart(productInfo) : indexInCart(prod)
+    const currProdInCart = i > -1 ? cart[i] : {}
+    currProdInCart && setQtyInCart(currProdInCart.quantity)
+  }, [cart, productInfo, prod])
 
   const addToCart = () => {
     prod['quantity'] = 1
@@ -20,7 +29,7 @@ const ProductDetail = ({ productInfo, onAddToCart }) => {
     removeSuccessInfo()
   }
 
-  const removeSuccessInfo = () => setTimeout(() => setSuccess(false), 5000)
+  const removeSuccessInfo = () => setTimeout(() => setSuccess(false), 6000)
 
   return (
     <section id="Prod-Detil">
@@ -40,6 +49,12 @@ const ProductDetail = ({ productInfo, onAddToCart }) => {
               <i className="bi bi-cart-plus"></i> &nbsp;
               Add to Cart
             </button>
+
+            { qtyInCart > 0 &&
+              <p className='mt-3 text-success'>
+                <i>{qtyInCart} of this product in your cart</i>
+              </p>
+            }
 
             { success &&
               <div id="Success" className="text-success mt-5">
