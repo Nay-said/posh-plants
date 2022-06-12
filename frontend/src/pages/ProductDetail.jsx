@@ -17,7 +17,10 @@ const ProductDetail = ({ productInfo, onAddToCart }) => {
     prod['quantity'] = 1
     onAddToCart(prod)
     setSuccess(true)
+    removeSuccessInfo()
   }
+
+  const removeSuccessInfo = () => setTimeout(() => setSuccess(false), 5000)
 
   return (
     <section id="Prod-Detil">

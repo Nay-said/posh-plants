@@ -10,7 +10,13 @@
   overflow-y: auto;
 }
 
-#Cart button {
+#cart-body h5 {
+  text-align: center;
+  height: 20vh;
+  letter-spacing: 3px;
+}
+
+#cart-body ~ button {
   width: 130px;
 }
 

@@ -1,3 +1,4 @@
+// Home Page
 export const HoyaBanner = {
   heading: 'Hoyas',
   imgSrc: 'https://kiwigardenermagazine.co.nz/wp-content/uploads/sites/4/2021/05/June-Hoya.jpg'
@@ -21,3 +22,6 @@ export const Links = () => {
     <a href='/Login' className='ps-2'>Log in</a>
   </>
 }
+
+// Cart
+export const cartMessage = `You are shopping as guest user.`
