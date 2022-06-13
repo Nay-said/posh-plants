@@ -14,7 +14,11 @@ const Navbar = ({ cart }) => {
     token && setUserToken(token)
   }, [userToken])
 
-  useEffect(() => setNumInCart(cart.length), [cart.length])
+  useEffect(() => {
+    let itemsQty = 0
+    cart.map(item => itemsQty += item.quantity)
+    setNumInCart(itemsQty)
+  }, [cart])
 
   const toggleDialog = () => setShowDialog(!showDialog)
 
