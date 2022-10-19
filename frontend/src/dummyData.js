@@ -33,7 +33,7 @@ export const NewProds = [
   {
     _id: '62a1608a3107f597ce83fbc7',
     productName: 'Acuta',
-    imgSrc: 'https://trademe.tmcdn.co.nz/photoserver/plus/1737587042.jpg',
+    imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrE0imr5VBpjRyWAzsveYmJxtKCGcaIQEog&usqp=CAU',
     type: 'Hoya',
     price: 23
   },
