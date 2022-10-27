@@ -12,7 +12,7 @@ The following shows you how to scaffolding the project after cloning the repo:
 
 **Dependencies**
 
-Run `$ npm install` at project root directory to install necessary dependencies for frontend, then also run it in /frontend directory to install frontend dependencies.
+Run `$ npm install` at project root directory to install necessary dependencies for backend, then also run it in /frontend directory to install frontend dependencies.
 
 **Env**
 
