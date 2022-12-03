@@ -40,7 +40,7 @@ export const NewProds = [
   {
     _id: '62a160aa3107f597ce83fbca',
     productName: 'Obovata',
-    imgSrc: 'https://cdn.shopify.com/s/files/1/0267/6840/8639/products/IMG_9922.jpg?v=1642307792&width=800',
+    imgSrc: 'https://cdn.shopify.com/s/files/1/0151/1650/1046/products/Hoya_obovata_indoor_pot_plant_ceramic_pot_new_zealand_540x.jpg?v=1622091417',
     type: 'Hoya',
     price: 21
   }
