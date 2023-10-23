@@ -49,7 +49,7 @@ function App() {
               }
               <Route path="/Admin" element={<Navigate replace to="/Admin/Dashboard" />} />
               <Route path="/Shop" element={<Navigate replace to="/Shop/All" />} />
-              <Route path="*" element={<h6 className="text-center mt-5">404! Not Found</h6>} />
+              {/* <Route path="*" element={<h6 className="text-center mt-5">404! Not Found</h6>} /> */}
             </Routes>
           </ScrollToTop>
         </main>
